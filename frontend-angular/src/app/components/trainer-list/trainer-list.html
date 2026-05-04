@@ -1,0 +1,26 @@
+<h2 class="mb-3">Allenatori</h2>
+
+@if (trainers.length === 0) {
+  <p class="text-muted">Nessun Allenatore presente.</p>
+} @else {
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="table-primary">
+        <tr>
+          <th>Cognome</th>
+          <th>Nome</th>
+          <th>Specialità</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (trainer of trainers; track trainer.id) {
+          <tr>
+            <td>{{ trainer.surname }}</td>
+            <td>{{ trainer.name }}</td>
+            <td>{{ trainer.speciality }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

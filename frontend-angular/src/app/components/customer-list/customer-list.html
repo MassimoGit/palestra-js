@@ -1,0 +1,43 @@
+@if (customers.length === 0) {
+  <p class="text-muted">Nessun cliente presente.</p>
+} @else {
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="table-primary">
+        <tr>
+          <th>Cognome</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Allenatore</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (customer of customers; track customer.id) {
+          <tr>
+            <td>{{ customer.surname }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.trainer_surname }} {{ customer.trainer_name }}</td>
+            <td>
+              <div class="d-flex gap-2">
+                <button
+                  class="btn btn-sm btn-outline-secondary"
+                  (click)="edit.emit(customer)"
+                >
+                  <i class="bi bi-pencil"></i> Modifica
+                </button>
+                <button
+                  class="btn btn-sm btn-danger"
+                  (click)="delete.emit(customer.id)"
+                >
+                  <i class="bi bi-trash"></i> Elimina
+                </button>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

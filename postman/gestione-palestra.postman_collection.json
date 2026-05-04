@@ -1,0 +1,134 @@
+{
+  "info": {
+    "name": "Gestione Palestra",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Trainers",
+      "item": [
+        {
+          "name": "GET trainers",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/trainers"
+          }
+        },
+        {
+          "name": "POST trainer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Elena\",\n  \"surname\": \"Costa\",\n  \"speciality\": \"Yoga\"\n}"
+            },
+            "url": "{{base_url}}/api/trainers"
+          }
+        },
+        {
+          "name": "PUT trainer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Laura\",\n  \"surname\": \"Bianchi\",\n  \"speciality\": \"Functional training avanzato\"\n}"
+            },
+            "url": "{{base_url}}/api/trainers/1"
+          }
+        },
+        {
+          "name": "DELETE trainer",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/trainers/3"
+          }
+        },
+        {
+          "name": "DELETE trainer 404",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/trainers/9999"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "GET customers",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/customers"
+          }
+        },
+        {
+          "name": "POST customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Marta\",\n  \"surname\": \"Conti\",\n  \"email\": \"marta.conti@example.com\",\n  \"enrollment_date\": \"2026-04-10\",\n  \"trainer_id\": 1\n}"
+            },
+            "url": "{{base_url}}/api/customers"
+          }
+        },
+        {
+          "name": "PUT customer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Anna\",\n  \"surname\": \"Neri\",\n  \"email\": \"anna.neri@example.com\",\n  \"enrollment_date\": \"2026-01-20\",\n  \"trainer_id\": 2\n}"
+            },
+            "url": "{{base_url}}/api/customers/1"
+          }
+        },
+        {
+          "name": "DELETE customer",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/customers/2"
+          }
+        },
+        {
+          "name": "DELETE customer 404",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/customers/9999"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    }
+  ]
+}

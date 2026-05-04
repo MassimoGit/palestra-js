@@ -1,0 +1,6 @@
+/* app-root occupa tutta la viewport verticalmente */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}

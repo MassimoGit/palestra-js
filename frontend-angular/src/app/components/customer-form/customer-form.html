@@ -1,0 +1,71 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <h5 class="mb-0">{{ initialCustomer ? 'Modifica customer' : 'Nuovo customer' }}</h5>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Cognome</label>
+          <input
+            class="form-control"
+            type="text"
+            name="surname"
+            [(ngModel)]="formData.surname"
+            [disabled]="isSubmitting"
+          />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Nome</label>
+          <input
+            class="form-control"
+            type="text"
+            name="name"
+            [(ngModel)]="formData.name"
+            [disabled]="isSubmitting"
+          />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Email</label>
+          <input
+            class="form-control"
+            type="email"
+            name="email"
+            [(ngModel)]="formData.email"
+            [disabled]="isSubmitting"
+          />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Allenatore</label>
+          <select
+            class="form-select"
+            name="trainer_id"
+            [(ngModel)]="formData.trainer_id"
+            [disabled]="isSubmitting"
+          >
+            <option [ngValue]="null">Seleziona trainer</option>
+            @for (trainer of trainers; track trainer.id) {
+              <option [ngValue]="trainer.id">
+                {{ trainer.surname }} {{ trainer.name }} — {{ trainer.speciality }}
+              </option>
+            }
+          </select>
+        </div>
+      </div>
+      <div class="d-flex gap-2 mt-3">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!isValid || isSubmitting"
+        >
+          {{ isSubmitting ? 'Salvataggio...' : (!initialCustomer) ? 'Salva nuovo' : 'Modifica' }}
+        </button>
+        @if (initialCustomer) {
+          <button type="button" class="btn btn-secondary" (click)="cancel.emit()">
+            <i class="bi bi-backspace-fill me-2"></i> Torna alla creazione nuovo cliente
+          </button>
+        }
+      </div>
+    </form>
+  </div>
+</div>

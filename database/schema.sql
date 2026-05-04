@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS gym;
+
+USE gym;
+
+CREATE TABLE trainer (
+  id INT AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  surname VARCHAR(100) NOT NULL,
+  speciality VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE customer (
+  id INT AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  surname VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  trainer_id INT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (trainer_id) REFERENCES trainer(id)
+);
