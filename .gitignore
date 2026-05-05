@@ -2,3 +2,10 @@ node_modules/
 dist/
 .env
 *.zip
+
+# IDE
+.idea/
+.vscode/
+
+# Variante Sequelize (non richiesta nell'esame)
+backend-sequelize/

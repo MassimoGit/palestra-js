@@ -1,0 +1,81 @@
+====================================================
+ GESTIONE PALESTRA — Avvio in locale
+====================================================
+
+----------------------------------------------------
+ 1. DATABASE
+----------------------------------------------------
+Aprire DBeaver, connettersi al server MySQL/TiDB ed
+eseguire il file:  database/schema.sql
+
+----------------------------------------------------
+ 2. BACKEND (Express + mysql2)
+----------------------------------------------------
+cd backend
+npm install
+npm run dev          (oppure: npm start)
+
+Server in ascolto su: http://localhost:3000
+Endpoint disponibili:
+  GET    http://localhost:3000/api/trainers
+  POST   http://localhost:3000/api/trainers
+  PUT    http://localhost:3000/api/trainers/:id
+  DELETE http://localhost:3000/api/trainers/:id
+  GET    http://localhost:3000/api/customers
+  POST   http://localhost:3000/api/customers
+  PUT    http://localhost:3000/api/customers/:id
+  DELETE http://localhost:3000/api/customers/:id
+
+----------------------------------------------------
+ 2b. BACKEND ALTERNATIVO (Express + Sequelize)
+----------------------------------------------------
+cd backend-sequelize
+npm install
+npm run dev
+
+Stesso server, stessi endpoint, ORM Sequelize al
+posto di mysql2 raw.
+
+----------------------------------------------------
+ 3. FRONTEND REACT (Vite)
+----------------------------------------------------
+cd frontend
+npm install
+npm run dev
+
+App in ascolto su: http://localhost:5173
+
+----------------------------------------------------
+ 4. FRONTEND ANGULAR
+----------------------------------------------------
+cd frontend-angular
+npm install
+npm start            (oppure: npx ng serve)
+
+App in ascolto su: http://localhost:4200
+
+----------------------------------------------------
+ 5. VARIABILI D'AMBIENTE (backend/.env)
+----------------------------------------------------
+DB_HOST=<host>
+DB_PORT=<porta>
+DB_USER=<utente>
+DB_PASSWORD=<password>
+DB_NAME=gym
+DB_SSL=true          (false per MySQL locale)
+
+Non committare mai il file .env nel repository.
+Usare .env.example come template.
+
+----------------------------------------------------
+ 6. BUILD DI PRODUZIONE
+----------------------------------------------------
+React:
+  cd frontend
+  npm run build      -> output in dist/
+
+Angular:
+  cd frontend-angular
+  npm run build      -> output in dist/frontend-angular/browser/
+
+====================================================
